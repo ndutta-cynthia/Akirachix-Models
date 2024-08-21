@@ -4,6 +4,8 @@ from django.db.models.manager import BaseManager
 class Student(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    country= models.CharField(max_length= 50)
+    courses = models.CharField()
     student_id = models.CharField(max_length=10, unique=True)
     date_of_birth = models.DateField()
     grade = models.PositiveIntegerField()

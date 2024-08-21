@@ -1,36 +1,35 @@
-# from django.urls import path
-# from .views import StudentListView
-# from .views import ClassroomListView
-# from .views import TeacherListView
-# from .views import CourseListView
-# from .views import StudentDetailView, CourseDetailView, Class_PeriodDetailViews, TeacherDetailView , ClassroomDetailView
-
-
-# urlpatterns= [
-#     path("students/" , StudentListView.as_view(),name='student_list_view'),
-#     path("teachers/" , TeacherListView.as_view(),name='teacher_list_view'),
-#     path("course/" , CourseListView.as_view(),name='course_list_view'),
-#     path("classroom/" , ClassroomListView.as_view(),name='classroom_list_view'),
-#     path("students/<int:id>/", StudentDetailView.as_view(), name="student_datail_view"),
-#     path("class_period/",Class_PeriodListViews.as_view(),name = "class_period_list_view"),
-#     path("students/<int:id>/",StudentDetailView.as_view(), name= "student_detail_view"),
-#     path ("teachers/<int:id>/", TeacherDetailView.as_view(), name = "teacher_detail_"),
-#     path ("courses/<int:id>/", CourseDetailView.as_view(), name = "course_detail_"),
-#     path ("class_period/<int:id>/", Class_PeriodDetailView.as_view(), name = "class_period_detail_"),
-#     path ("classroom/<int:id>/", ClassroomDetailView.as_view(), name = "classroom_detail_")
-# ]
-
 from django.urls import path
-from .views import Class_PeriodListViews, CourseListViews, ClassroomListViews, StudentDetailView, StudentListViews , TeacherListViews, TeacherDetailView, CourseDetailView, Class_PeriodDetailView, ClassroomDetailView
+from .views import ClassPeriodListView
+# from .views import CourseListViews
+from .views import CourseListView
+# from .views import ClassroomListViews
+# from .views import ClassPeriodSerializer
+from .views import ClassroomSerializer
+from .views import StudentDetailView
+# from .views import StudentListViews
+from .views import StudentListView
+# from .views import TeacherListViews
+from .views import TeacherListView
+from .views import TeacherDetailView
+from .views import CourseDetailView
+# from .views import Class_PeriodDetailView
+# from .views import ClassroomDetailView
+from .views import ClassPeriodDetailView
+from .views import ClassesListView
+from .views import ClassDetailView
+# from .views import WeeklyTimetableView
+from .views import WeeklyTimetableView
+
 urlpatterns = [
-    path("Students/",StudentListViews.as_view(),name = "student_list_view"),
-    path("Teachers/",TeacherListViews.as_view(),name = "teacher_list_view"),
-    path("Course/",CourseListViews.as_view(),name = "course_list_view"),
-    path("Classroom/",ClassroomListViews.as_view(),name = "class_room_list_view"),
-    path("class_period/",Class_PeriodListViews.as_view(),name = "class_period_list_view"),
-    path("students/<int:id>/",StudentDetailView.as_view(), name= "student_detail_view"),
-    path ("teachers/<int:id>/", TeacherDetailView.as_view(), name = "teacher_detail_"),
-    path ("courses/<int:id>/", CourseDetailView.as_view(), name = "course_detail_"),
-    path ("class_period/<int:id>/", Class_PeriodDetailView.as_view(), name = "class_period_detail_"),
-    path ("classroom/<int:id>/", ClassroomDetailView.as_view(), name = "classroom_detail_")
+    path("student/",StudentListView.as_view(),name = "student_list_view"),
+    path("teacher/",TeacherListView.as_view(),name = "teacher_list_view"),
+    path("course/",CourseListView.as_view(),name = "course_list_view"),
+    path("classroom/",ClassesListView.as_view(),name = "class_room_list_view"),
+    path("class_period/",ClassPeriodListView.as_view(),name = "classperiod_list_view"),
+    path("student/<int:id>/",StudentDetailView.as_view(), name= "studentdetail_view"),
+    path ("teacher/<int:id>/", TeacherDetailView.as_view(), name = "teacherdetail_view"),
+    path ("course/<int:id>/", CourseDetailView.as_view(), name = "coursedetail_view"),
+    path ("classperiod/<int:id>/", ClassPeriodDetailView.as_view(), name = "classperiod_detail_vire"),
+    path ("classroom/<int:id>/", ClassDetailView.as_view(), name = "classroomdetail_view"),
+    path('timetable/', WeeklyTimetableView.as_view(), name='weekly_timetable')
 ]

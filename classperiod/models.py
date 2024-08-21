@@ -1,7 +1,10 @@
 from django.db import models
 from classroom.models import Classroom
 from course.models import Course
-# Create your models here.
+from django.db.models.manager import BaseManager
+
+
+
 class Class_Period(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length = 30)
@@ -12,12 +15,8 @@ class Class_Period(models.Model):
     day_of_week = models.CharField(max_length = 30)
     created_at = models.DateField()
     updated_at = models.DateField()
+
+    objects:BaseManager['Class_Period']
+    
     def __str__(self):
-         return f"{self.name}"
-
-
-
-
-
-
-
+        return f"{self.name}"
